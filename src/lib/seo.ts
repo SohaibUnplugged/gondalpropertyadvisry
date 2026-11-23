@@ -63,8 +63,8 @@ export function pageMetadata({
       locale: "en_PK",
       images: [
         {
-          url: "/images/reference/hero-1.avif",
-          alt: "Illustrative professional advisory photograph",
+          url: "/images/gondal/social-banner.jpg",
+          alt: "Usman Ali | Gondal Property Advisory",
         },
       ],
     },
@@ -72,7 +72,7 @@ export function pageMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["/images/reference/hero-1.avif"],
+      images: ["/images/gondal/social-banner.jpg"],
     },
   };
 }

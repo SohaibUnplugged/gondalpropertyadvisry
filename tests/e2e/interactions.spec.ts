@@ -20,7 +20,10 @@ test("the reference visual system is used on desktop and mobile", async ({
     "font-size",
     isMobile ? "30px" : "52px",
   );
-  await expect(page.locator(".hero-image")).toHaveAttribute("src", /hero-1/);
+  await expect(page.locator(".hero-image")).toHaveAttribute(
+    "src",
+    /desktop-banner/,
+  );
   await expect(page.locator(".service-row")).toHaveCount(4);
   await expect(page.locator(".process-card")).toHaveCount(4);
   await expect(page.locator(".focus-row")).toHaveCount(4);

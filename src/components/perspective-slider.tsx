@@ -51,7 +51,7 @@ export function PerspectiveSlider() {
             >
               <Image
                 src={perspective.image}
-                alt="Illustrative studio portrait from the visual reference, not a client photograph"
+                alt={`${perspective.label}: supplied housing society interior photograph`}
                 fill
                 sizes="(max-width: 700px) 100vw, 35vw"
               />

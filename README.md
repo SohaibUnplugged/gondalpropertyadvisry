@@ -43,7 +43,8 @@ The check command runs ESLint, route type generation, TypeScript, a production b
 - src/components/service-stack.tsx: progressive sticky service stacking with viewport-aware pinning offsets.
 - src/lib/site.ts: business identity, contact details, navigation, services, process, and FAQ copy.
 - src/lib/seo.ts: validated metadata, canonical origin, social cards, and safe JSON-LD serialization.
-- public/images/reference/: locally served AVIF reference photographs.
+- public/images/gondal/: optimized business banners, Usman’s portrait, and society photographs.
+- public/images/reference/: the four retained decorative process icons.
 - src/app/fonts/: self-hosted variable Geist font and its OFL license.
 - docs/asset-sources.json: photo provenance and font source.
 - tests/e2e/: functional, responsive, accessibility, and SEO checks.
@@ -57,7 +58,7 @@ Phone links call +92 308 6268500. Email links open the visitor's email applicati
 
 ## Performance and security
 
-Public pages and crawl files are prerendered. The page composition stays on the server; navigation, the form, slider, dialogs, marquee controls, and scroll-reveal controller use small client components. Photography uses next/image with responsive sizing, hero preload, and lazy loading below the fold. The variable Geist font is self-hosted through next/font/local, without runtime Google Font requests. Dependencies are reproducibly locked. Response headers disable framing and MIME sniffing and restrict unused browser capabilities. No credentials, database queries, password handling, or protected admin routes are introduced.
+Public pages and crawl files are prerendered. The page composition stays on the server; navigation, the form, slider, dialogs, marquee controls, and scroll-reveal controller use small client components. Photography uses next/image with responsive sizing and lazy loading below the fold. The hero uses the Next.js getImageProps art-direction pattern, loading the mobile or desktop banner through a single picture element with high fetch priority. The variable Geist font is self-hosted through next/font/local, without runtime Google Font requests. Dependencies are reproducibly locked. Response headers disable framing and MIME sniffing and restrict unused browser capabilities. No credentials, database queries, password handling, or protected admin routes are introduced.
 
 ## Motion and interactions
 
@@ -69,14 +70,18 @@ On fine-pointer devices, [Lenis](https://github.com/darkroomengineering/lenis) l
 
 Service cards pin at the reference's 100px desktop offset and incoming opaque cards cover previous cards. ResizeObserver adjusts pinning for short viewports. Narrow screens and no-JavaScript browsing use normal flow. Keyboard focus exposes covered controls. Process descriptions expand on hover/focus and stay open on touch layouts. Shared HoverText handles masked title/button transitions, with duplicate visual text hidden from assistive technology.
 
-The marquee has its existing pause/play control and hover behavior. Portraits crossfade; the slider supports buttons, arrow keys, and swipes. Insight dialogs support eased entry/exit, focus management, and Escape dismissal. FAQs use intrinsic-size transitions where supported.
+The marquee has its existing pause/play control and hover behavior. Society photographs crossfade; the slider supports buttons, arrow keys, and swipes. Insight dialogs support eased entry/exit, focus management, and Escape dismissal. FAQs use intrinsic-size transitions where supported.
 
 Run npm run dev, then npm run test:local in another terminal to verify the actual localhost:3000 server. The native-host regression explicitly uses reducedMotion: null and a desktop pointer, alongside emulated desktop/mobile cases. Tests verify automatic motion under the real OS preference, absence of the removed control, legacy settings, wheel easing, stacking, hover/focus states, and the no-JavaScript fallback. The local checks never replace or stop the user's running development server.
 
 ## Imagery and personalization
 
-Photographs currently reproduce the imagery treatment of the user-supplied Factorive reference. They are illustrative, not photographs of Usman, his clients, or his listings. The brand mark is a local SVG. Replace illustrative photos with approved business photography during personalization. Source URLs are recorded in docs/asset-sources.json; confirm the photographic assets' reuse rights before a public launch.
+The hero selects the supplied desktop or mobile banner at a 700px breakpoint. Usman Ali’s supplied portrait appears in the About and FAQ sections. All 12 supplied societies have entrance photos and individual WhatsApp enquiry links; their interior photos also appear throughout the service, property focus, advice, and insight sections. No reference photography remains. Assets are normalized and compressed locally, with no embedded image metadata or remote image dependencies.
 
-Reference: [Factorive](https://factorive.webflow.io/). Font: [Geist in Google Fonts](https://github.com/google/fonts/tree/main/ofl/geist), distributed under the included SIL Open Font License.
+Society records are centralized in src/lib/site.ts. Add a name, stable slug, description, and local image there to create another card. Names come from the business-supplied archive, including its Kharian, Sarai Alamgir, Dinga, and Gujrat labels. These labels are not an independently verified office address or service-area claim. Copy makes no claims about current inventory, prices, approvals, developer authorization, or guaranteed returns. The site contains no property listings or invented testimonials.
 
-The final domain, service areas, official brand assets, and any additional business-specific details are pending personalization. No deployment has been performed.
+Project identity research included [Grand City](https://grandcity.pk/kharian), [BSM Developers](https://www.bsmdevelopers.com/new-metro-city-kharian), [Dream City](https://dreamcitykharian.com/), and [Buraq City](https://buraqcity.com.pk/). Published descriptions use enquiry prompts rather than reproducing marketing claims. Project photos may represent an earlier stage or marketing imagery; current conditions and transaction terms require direct confirmation.
+
+The visual layout remains inspired by [Factorive](https://factorive.webflow.io/). The four decorative process SVGs retain their source records in docs/asset-sources.json. Font: [Geist in Google Fonts](https://github.com/google/fonts/tree/main/ofl/geist), under the included SIL Open Font License.
+
+The final domain and office address remain unconfirmed. No deployment has been performed. Commit and push source changes to the supplied GitHub repository; configure the final SITE_URL and production HTTPS hosting before public launch.

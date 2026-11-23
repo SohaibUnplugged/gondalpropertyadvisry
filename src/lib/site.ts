@@ -10,7 +10,7 @@ export const site = {
 export const navigation = [
   { label: "Home", href: "/#main" },
   { label: "About", href: "/#about" },
-  { label: "Approach", href: "/#approach" },
+  { label: "Societies", href: "/#societies" },
   { label: "Insights", href: "/#insights" },
   { label: "Services", href: "/#services" },
 ];
@@ -18,10 +18,10 @@ export const navigation = [
 export const services = [
   {
     title: "Buying a property",
-    text: "A home, a fresh start, a long-term plan. Talk through your priorities and the questions that matter before you buy.",
+    text: "Buying a home or plot? Discuss your preferred society, budget, block, and timeline directly with Usman Ali.",
     icon: "home",
-    image: "/images/reference/service-1.avif",
-    alt: "Professionals discussing plans around a meeting table",
+    image: "/images/gondal/grand-city-kharian-inside.webp",
+    alt: "Grand City Kharian, supplied interior photograph",
     deliverables: [
       "Your priorities and preferences",
       "Location and lifestyle questions",
@@ -32,10 +32,10 @@ export const services = [
   },
   {
     title: "Selling a property",
-    text: "Start with a clear conversation about your property, your expectations, and what you want your next move to look like.",
+    text: "Share your society, block, property details, and asking expectations. Usman will discuss your selling priorities and next steps.",
     icon: "key",
-    image: "/images/reference/service-2.avif",
-    alt: "A small team having a focused conversation in an office",
+    image: "/images/gondal/new-metro-city-kharian-inside.webp",
+    alt: "New Metro City Kharian, supplied interior photograph",
     deliverables: [
       "Your property and its context",
       "Your expectations and timeline",
@@ -46,10 +46,10 @@ export const services = [
   },
   {
     title: "Property investment",
-    text: "Explore your objectives, time horizon, and appetite for risk. Make space for informed decisions, without the pressure.",
+    text: "Compare your property goals with your budget and holding period. Discuss the questions around location, charges, documentation, and resale.",
     icon: "building",
-    image: "/images/reference/service-3.avif",
-    alt: "Advisors reviewing information together at a desk",
+    image: "/images/gondal/citi-housing-kharian-inside.webp",
+    alt: "Citi Housing Kharian, supplied interior photograph",
     deliverables: [
       "Your objectives and time horizon",
       "Budget and risk considerations",
@@ -62,9 +62,9 @@ export const services = [
 
 export const advisoryService = {
   title: "Personal property advisory",
-  text: "Bring your questions, ideas, and uncertainties. Start a direct conversation with Usman about the property decisions ahead.",
-  image: "/images/reference/service-4.avif",
-  alt: "A collaborative discussion over documents and a laptop",
+  text: "Speak with Usman Ali about the societies featured here. Whether you are nearby or enquiring from abroad, start by phone, email, or WhatsApp.",
+  image: "/images/gondal/desktop-banner.webp",
+  alt: "Usman Ali, your contact at Gondal Property Advisory",
   deliverables: [
     "A conversation about your goals",
     "Your questions and concerns",
@@ -77,28 +77,28 @@ export const advisoryService = {
 export const propertyTopics = [
   {
     title: "Residential",
-    image: "/images/reference/project-1.avif",
+    image: "/images/gondal/dream-city-kharian-inside.webp",
     text: "A place that fits the way you live.",
     detail: "Your lifestyle, your priorities, your next chapter.",
     focus: "Homes & living",
   },
   {
     title: "Commercial",
-    image: "/images/reference/project-2.avif",
+    image: "/images/gondal/canal-city-sarai-alamgir-inside.webp",
     text: "Space for the work you want to do.",
     detail: "Discuss the purpose, location, and practical needs of your space.",
     focus: "Business & workspace",
   },
   {
     title: "Land & plots",
-    image: "/images/reference/project-3.avif",
+    image: "/images/gondal/chenab-orchard-gujrat-inside.webp",
     text: "Start with a clearer understanding.",
     detail: "Talk through your goals and the questions you want to explore.",
     focus: "Land & possibilities",
   },
   {
     title: "Investment",
-    image: "/images/reference/project-4.avif",
+    image: "/images/gondal/new-city-kharian-inside.webp",
     text: "Think about the bigger picture.",
     detail: "Your time horizon, your objectives, your appetite for risk.",
     focus: "Long-term thinking",
@@ -111,21 +111,21 @@ export const perspectives = [
     text: "Before talking about a property, talk about how you want to live. The commute, the surroundings, and the space you need all deserve a place in the conversation.",
     label: "For buyers",
     focus: "Lifestyle before a shortlist",
-    image: "/images/reference/perspective-1.avif",
+    image: "/images/gondal/river-garden-gujrat-inside.webp",
   },
   {
     title: "Your next chapter deserves a clear starting point.",
     text: "Selling begins with understanding your priorities. Share what matters to you, when you want to move, and the questions you would like to work through.",
     label: "For sellers",
     focus: "Your plans, understood",
-    image: "/images/reference/perspective-2.avif",
+    image: "/images/gondal/eiffel-city-dinga-inside.webp",
   },
   {
     title: "A considered decision starts with better questions.",
     text: "An investment conversation should leave room for uncertainty. Begin with your objectives and the information you need, rather than a promise about what happens next.",
     label: "For investors",
     focus: "Perspective before a decision",
-    image: "/images/reference/perspective-3.avif",
+    image: "/images/gondal/noor-garden-gujrat-inside.webp",
   },
 ];
 
@@ -133,31 +133,31 @@ export const guides = [
   {
     title: "Start your property conversation with the right questions",
     category: "Getting started",
-    image: "/images/reference/guide-1.avif",
+    image: "/images/gondal/gulshan-e-razzaq-inside.webp",
     paragraphs: [
-      "A useful first conversation does not need a perfect brief. Begin with the reason you are considering a move and what you want that move to change.",
-      "Share a preferred location, an approximate budget, and a timeline if you have them. It is just as helpful to explain what you are still unsure about.",
-      "Write down the questions you would like to discuss. You can then use the call or WhatsApp conversation to agree on the next steps with Usman.",
+      "Tell Usman which society you are considering and whether you want to buy or sell. Include the block, plot size, and property type if you already know them. A realistic budget and timeline make the conversation more useful.",
+      "Ask what information is available for the specific property: its location, ownership or allotment documents, payment position, outstanding charges, and transfer process. Society-wide information does not establish the status of an individual plot.",
+      "Use the WhatsApp button on any society card to start a message about that project. You can describe your requirements first; there is no need to share identity documents or banking information in an initial enquiry.",
     ],
   },
   {
     title: "Think about the life around your next home",
     category: "A fresh perspective",
-    image: "/images/reference/guide-2.avif",
+    image: "/images/gondal/buraq-city-inside.webp",
     paragraphs: [
-      "A property is part of a wider daily routine. Think about the journeys you make, the people you live with, and the spaces you use most often.",
-      "Make two lists: things you need and things you would like. This can help you explain your priorities without losing sight of what matters most.",
-      "Bring those priorities into your conversation with Usman. They are a starting point for discussion, rather than a guarantee that one property will meet every requirement.",
+      "Choosing a society and choosing a particular plot are separate decisions. Think about your daily journeys, family needs, and when you intend to build or move. Share those priorities with Usman alongside your budget.",
+      "A project photograph shows one view at one point in time. Before deciding, visit the specific location where possible and ask about road access, utilities, surrounding construction, and the facilities that matter to you.",
+      "Compare what is visible on the ground with the documents and plans you receive. Keep a written list of unanswered questions so that an attractive entrance or image does not become the only basis for your decision.",
     ],
   },
   {
     title: "Make a little room for a more considered decision",
     category: "Planning your next move",
-    image: "/images/reference/guide-3.avif",
+    image: "/images/gondal/grand-city-kharian-inside.webp",
     paragraphs: [
-      "You do not need to rush to have a useful conversation about property. A clear question is often a better starting point than a quick decision.",
-      "Separate what you know from what you want to find out. Keep notes about the information you receive and the questions that still need an answer.",
-      "Speak directly with Usman about your plans. Agree on a next step that fits your circumstances and the amount of information you currently have.",
+      "Start with your purpose: a future home, a business use, or a property you may hold and sell later. Explain your expected holding period and how much flexibility you need if your circumstances change.",
+      "Ask for a clear breakdown of the proposed price, any instalments, outstanding dues, transfer costs, and other charges that may apply. Confirm these for the specific property and transaction rather than relying on a general advertisement.",
+      "Keep copies of the information you review and clarify the terms before making a commitment. Speak with Usman about the questions still open; future values and resale timing should never be treated as guaranteed.",
     ],
   },
 ];
@@ -208,3 +208,78 @@ export const faqs = [
       "Yes. The phone, email, and WhatsApp links on this website connect you directly with Usman Ali at Gondal Property Advisory.",
   },
 ];
+
+export const societies = [
+  {
+    slug: "grand-city-kharian",
+    name: "Grand City Kharian",
+    text: "Discuss your preferred block, plot requirements, and the questions to take into a site visit.",
+    image: "/images/gondal/grand-city-kharian-entrance.webp",
+  },
+  {
+    slug: "new-metro-city-kharian",
+    name: "New Metro City Kharian",
+    text: "Talk through your plans for New Metro City and the information you need before choosing an option.",
+    image: "/images/gondal/new-metro-city-kharian-entrance.webp",
+  },
+  {
+    slug: "citi-housing-kharian",
+    name: "Citi Housing Kharian",
+    text: "Bring your budget and preferences to a conversation about buying or selling in Citi Housing.",
+    image: "/images/gondal/citi-housing-kharian-entrance.webp",
+  },
+  {
+    slug: "dream-city-kharian",
+    name: "Dream City Kharian",
+    text: "Explore how your plans for a home or plot align with your preferred location and timeline.",
+    image: "/images/gondal/dream-city-kharian-entrance.webp",
+  },
+  {
+    slug: "new-city-kharian",
+    name: "New City Kharian",
+    text: "Discuss your property requirements, access priorities, and next steps for New City Kharian.",
+    image: "/images/gondal/new-city-kharian-entrance.webp",
+  },
+  {
+    slug: "buraq-city",
+    name: "Buraq City",
+    text: "Ask Usman about your options and the details to clarify before progressing with a property.",
+    image: "/images/gondal/buraq-city-entrance.webp",
+  },
+  {
+    slug: "canal-city-sarai-alamgir",
+    name: "Canal City Sarai Alamgir",
+    text: "Talk about your preferred surroundings, property needs, and plans for Canal City.",
+    image: "/images/gondal/canal-city-sarai-alamgir-entrance.webp",
+  },
+  {
+    slug: "gulshan-e-razzaq",
+    name: "Gulshan-e-Razzaq",
+    text: "Start with the property type you have in mind and the practical questions you want answered.",
+    image: "/images/gondal/gulshan-e-razzaq-entrance.webp",
+  },
+  {
+    slug: "eiffel-city-dinga",
+    name: "Eiffel City Dinga",
+    text: "Discuss buying or selling in Eiffel City with a conversation shaped around your priorities.",
+    image: "/images/gondal/eiffel-city-dinga-entrance.webp",
+  },
+  {
+    slug: "chenab-orchard-gujrat",
+    name: "Chenab Orchard Gujrat",
+    text: "Share your plans for Chenab Orchard and the location, budget, and timing that work for you.",
+    image: "/images/gondal/chenab-orchard-gujrat-entrance.webp",
+  },
+  {
+    slug: "river-garden-gujrat",
+    name: "River Garden Gujrat",
+    text: "Consider your next move in River Garden with direct guidance from Usman on what to discuss next.",
+    image: "/images/gondal/river-garden-gujrat-entrance.webp",
+  },
+  {
+    slug: "noor-garden-gujrat",
+    name: "Noor Garden Gujrat",
+    text: "Bring your questions about Noor Garden, whether you are considering a purchase or planning to sell.",
+    image: "/images/gondal/noor-garden-gujrat-entrance.webp",
+  },
+] as const;

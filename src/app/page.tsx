@@ -1,4 +1,6 @@
 ﻿import Image from "next/image";
+import { HeroImage } from "@/components/hero-image";
+import { Societies } from "@/components/societies";
 import { Icon } from "@/components/icon";
 import { ContactForm } from "@/components/contact-form";
 import { ActionLink, HoverText, SectionLabel } from "@/components/action-link";
@@ -78,20 +80,14 @@ export default function Home() {
       />
       <section className="hero" aria-labelledby="hero-heading">
         <div className="hero-photo">
-          <Image
-            className="hero-image"
-            src="/images/reference/hero-1.avif"
-            alt="Illustrative photograph of a professional reviewing information at a desk"
-            fill
-            sizes="100vw"
-            preload
-          />
+          <HeroImage />
         </div>
         <div className="hero-shade" />
         <div className="container hero-content">
           <div className="hero-intro">
             <p className="hero-eyebrow">
-              <span />A PERSONAL PERSPECTIVE ON PROPERTY
+              <span />
+              GONDAL PROPERTY ADVISORY
             </p>
             <h1 id="hero-heading">
               <span className="hero-title-line">
@@ -105,9 +101,9 @@ export default function Home() {
           <div className="hero-bottom">
             <div className="hero-bottom-copy">
               <p>
-                Helping you make sense of your next property move with
-                thoughtful conversations, clear priorities, and a personal
-                approach.
+                Buy, sell, or explore housing societies with Usman Ali. Share
+                your preferred location and budget. Start with a direct
+                conversation, on your terms.
               </p>
               <div className="hero-actions">
                 <ActionLink href="#contact" className="button-sand" arrow>
@@ -121,8 +117,9 @@ export default function Home() {
             <div className="hero-caption">
               <Icon name="globe" />
               <span>
-                Property decisions.
-                <br />A personal perspective.
+                Usman Ali.
+                <br />
+                Your property advisor.
               </span>
             </div>
           </div>
@@ -135,10 +132,9 @@ export default function Home() {
             <SectionLabel>About Gondal</SectionLabel>
             <div data-reveal>
               <h2>
-                Property decisions deserve a clear perspective, thoughtful
-                guidance, and a conversation built around what matters to you.
-                At Gondal Property Advisory, your next move starts with
-                understanding your goals.
+                Meet Usman Ali, the person behind Gondal Property Advisory. From
+                choosing a housing society to planning a sale, discuss your
+                property goals with one direct point of contact.
               </h2>
               <ActionLink href="#contact" className="button-dark">
                 Meet Your Advisor
@@ -148,17 +144,14 @@ export default function Home() {
           <div className="about-cards">
             <article className="about-photo-card" data-reveal>
               <Image
-                src="/images/reference/about-1.avif"
-                alt="Sculptural amber lamp casting a warm light"
+                src="/images/gondal/usman-ali.webp"
+                alt="Usman Ali of Gondal Property Advisory"
                 fill
                 sizes="(max-width: 700px) 50vw, 25vw"
               />
               <div>
-                <h3>A clearer way forward</h3>
-                <p>
-                  A personal conversation about where you are and where you want
-                  to go.
-                </p>
+                <h3>Usman Ali</h3>
+                <p>Your direct contact at Gondal Property Advisory.</p>
               </div>
             </article>
             {[
@@ -182,6 +175,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Societies />
       <section id="services" className="section services-section">
         <div className="container">
           <div className="section-heading">
@@ -222,7 +216,7 @@ export default function Home() {
                 <div className="service-photo" data-reveal data-delay={80}>
                   <Image
                     src={service.image}
-                    alt={`${service.alt}; illustrative photograph`}
+                    alt={service.alt}
                     fill
                     sizes="(max-width: 700px) 100vw, 42vw"
                   />
@@ -323,7 +317,7 @@ export default function Home() {
                   >
                     <Image
                       src={topic.image}
-                      alt="Illustrative photograph of professionals in a property advisory conversation"
+                      alt={`${topic.title} discussion: supplied housing society photograph`}
                       fill
                       sizes="(max-width: 700px) 100vw, 42vw"
                     />
@@ -394,8 +388,8 @@ export default function Home() {
               >
                 {index === 2 && (
                   <Image
-                    src="/images/reference/wood-1.avif"
-                    alt="Warm natural wood grain"
+                    src="/images/gondal/canal-city-sarai-alamgir-inside.webp"
+                    alt="Canal City Sarai Alamgir, supplied interior photograph"
                     fill
                     sizes="(max-width: 700px) 100vw, 33vw"
                   />
@@ -450,7 +444,15 @@ export default function Home() {
           </div>
           <div className="faq-layout">
             <div className="advisor-card" data-reveal>
-              <div className="advisor-monogram">UA</div>
+              <div className="advisor-portrait">
+                <Image
+                  src="/images/gondal/usman-ali.webp"
+                  alt="Usman Ali"
+                  width={160}
+                  height={190}
+                  sizes="120px"
+                />
+              </div>
               <h3>
                 Still have questions?
                 <br />
@@ -498,8 +500,8 @@ export default function Home() {
         <div className="container">
           <div className="cta-panel" data-reveal>
             <Image
-              src="/images/reference/cta-1.avif"
-              alt="Illustrative photograph of a professional considering information on a laptop"
+              src="/images/gondal/desktop-banner.webp"
+              alt="Usman Ali at his desk"
               fill
               sizes="100vw"
             />

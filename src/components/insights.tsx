@@ -27,7 +27,7 @@ export function Insights() {
             <div className="insight-photo">
               <Image
                 src={item.image}
-                alt="Illustrative professional considering their next decision"
+                alt={`${item.category}: supplied housing society photograph`}
                 fill
                 sizes="(max-width: 700px) 100vw, 33vw"
               />
