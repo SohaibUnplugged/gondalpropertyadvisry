@@ -60,11 +60,15 @@ Public pages and crawl files are prerendered. The page composition stays on the 
 
 ## Motion and interactions
 
-The hero has a short entrance and image-settle animation. A single IntersectionObserver triggers one-time Web Animations reveals as sections enter the viewport. Content is visible in the server HTML and remains readable without JavaScript. Reveal animations are cancelled on unmount and when reduced motion is requested.
+The hero uses separately masked headline lines and a short image-settle animation. A single IntersectionObserver coordinates staggered text, list, card, and clipped-image reveals. Only offscreen elements are concealed after JavaScript initializes; content remains visible in server HTML and without JavaScript. Pending reveals are released and active animations cancelled when reduced motion is requested or the page unmounts.
 
-The scrolling topic strip has a pause/play control and also pauses on hover. The perspective slider supports previous/next buttons, direct slide selection, arrow keys, and touch swipes. It does not auto-advance. Insight cards open labelled native dialogs with focus management and Escape dismissal. Image hover effects, rolling button labels, process-card expansion, FAQ transitions, and the post-hero navigation complete the interaction system. All motion respects prefers-reduced-motion; process descriptions remain visible on touch layouts and with reduced motion.
+On devices with a fine pointer, [Lenis](https://github.com/darkroomengineering/lenis) is loaded on demand for desktop wheel easing. Touch scrolling stays native. Reduced-motion users do not initialize the scroll controller; changing the preference live destroys it. Anchor navigation retains URL history, supports browser back/forward, and moves focus to the destination without a second scroll. Textareas, selects, and dialogs preserve native scrolling; modal dialogs lock the page behind them.
 
-Browser tests cover these interactions, their keyboard and touch behavior, the no-JavaScript fallback, reference typography/layout checks, and reduced-motion preferences alongside the existing SEO, contact, and accessibility checks.
+Browsers with scroll-timeline support add gentle photo parallax and a thin reading-progress line without per-frame React state updates. Other browsers retain the same layout and normal image treatments. Shared easing curves keep entrances, button hover effects, and transitions consistent.
+
+The scrolling topic strip has a pause/play control and also pauses on hover. The perspective slider crossfades portraits while its text enters separately, and supports previous/next buttons, direct slide selection, arrow keys, and touch swipes. It does not auto-advance. Insight cards open labelled native dialogs with eased entry/exit, focus management, and Escape dismissal. FAQ expansion uses intrinsic-size transitions where supported. Image hover effects, rolling button labels, process-card expansion, mobile menu transitions, and the post-hero navigation complete the interaction system. All motion respects prefers-reduced-motion; process descriptions remain visible on touch layouts and with reduced motion.
+
+Browser tests cover these interactions, actual wheel easing, anchor history/focus, portrait crossfades, native dialog scrolling, live reduced-motion changes, keyboard and touch behavior, the no-JavaScript fallback, and reference typography/layout checks alongside the existing SEO, contact, and accessibility checks.
 
 ## Imagery and personalization
 

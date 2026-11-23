@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer-top">
+        <div className="footer-top" data-reveal>
           <div>
             <Link href="/" className="brand" aria-label={`${site.name} home`}>
               <BrandMark />
@@ -81,7 +81,7 @@ export function Footer() {
           <span>Copyright © {site.name}</span>
           <Link href="/#main">Back to top</Link>
         </div>
-        <div className="footer-wordmark" aria-hidden="true">
+        <div className="footer-wordmark" aria-hidden="true" data-reveal>
           GONDAL
         </div>
       </div>

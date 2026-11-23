@@ -39,6 +39,7 @@ export function Insights() {
       </div>
       <dialog
         ref={dialog}
+        data-lenis-prevent
         className="insight-dialog"
         aria-labelledby="guide-title"
         onClick={(event) => {

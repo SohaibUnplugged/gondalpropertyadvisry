@@ -65,7 +65,13 @@ export function ContactForm() {
           required
         />
         <label htmlFor="interest">I’m interested in</label>
-        <select id="interest" name="interest" defaultValue="" required>
+        <select
+          id="interest"
+          name="interest"
+          defaultValue=""
+          required
+          data-lenis-prevent
+        >
           <option value="" disabled>
             Select an enquiry
           </option>
@@ -77,6 +83,7 @@ export function ContactForm() {
         <textarea
           id="message"
           name="message"
+          data-lenis-prevent
           rows={3}
           placeholder="Your preferred location, budget, or a question…"
           minLength={10}

@@ -20,8 +20,14 @@ export function PerspectiveSlider() {
       aria-roledescription="carousel"
       aria-label="Property perspectives"
       onKeyDown={(event) => {
-        if (event.key === "ArrowRight") move(1);
-        if (event.key === "ArrowLeft") move(-1);
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          move(1);
+        }
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          move(-1);
+        }
       }}
     >
       <div
@@ -37,12 +43,20 @@ export function PerspectiveSlider() {
         }}
       >
         <div className="perspective-photo">
-          <Image
-            src={current.image}
-            alt="Illustrative studio portrait from the visual reference, not a client photograph"
-            fill
-            sizes="(max-width: 700px) 100vw, 35vw"
-          />
+          {perspectives.map((perspective, index) => (
+            <div
+              className={`portrait-layer ${active === index ? "is-active" : ""}`}
+              aria-hidden={active !== index}
+              key={perspective.image}
+            >
+              <Image
+                src={perspective.image}
+                alt="Illustrative studio portrait from the visual reference, not a client photograph"
+                fill
+                sizes="(max-width: 700px) 100vw, 35vw"
+              />
+            </div>
+          ))}
         </div>
         <div
           className="perspective-copy"

@@ -93,8 +93,12 @@ export default function Home() {
               <span />A PERSONAL PERSPECTIVE ON PROPERTY
             </p>
             <h1 id="hero-heading">
-              Property Advisory for
-              <br className="desktop-break" /> Confident Decisions
+              <span className="hero-title-line">
+                <span>Property Advisory for</span>
+              </span>
+              <span className="hero-title-line">
+                <span>Confident Decisions</span>
+              </span>
             </h1>
           </div>
           <div className="hero-bottom">

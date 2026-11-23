@@ -1,5 +1,8 @@
 ﻿@import "tailwindcss";
+@import "lenis/dist/lenis.css";
 :root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-fluid: cubic-bezier(0.22, 0.61, 0.36, 1);
   --paper: #f2efe9;
   --paper-deep: #eae6df;
   --ink: #0c0c0c;
@@ -17,8 +20,21 @@
   box-sizing: border-box;
 }
 html {
+  scrollbar-gutter: stable;
   scroll-behavior: smooth;
   scroll-padding-top: 110px;
+}
+html.lenis {
+  scroll-behavior: auto;
+}
+html:has(.insight-dialog[open]) {
+  overflow: hidden;
+}
+[data-motion="pending"] {
+  opacity: 0;
+}
+.scroll-progress {
+  display: none;
 }
 body {
   margin: 0;
@@ -77,9 +93,6 @@ textarea:focus-visible {
 ::selection {
   background: #c7bba9;
   color: #0c0c0c;
-}
-section[id] {
-  scroll-margin-top: 105px;
 }
 .container {
   max-width: 1600px;
@@ -166,6 +179,11 @@ h3 {
   margin-top: 40px;
 }
 .button {
+  transition:
+    background 0.35s,
+    color 0.35s,
+    transform 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -184,6 +202,13 @@ h3 {
   flex-shrink: 0;
   transition: transform 0.35s;
 }
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px #0000000d;
+}
+.button:active {
+  transform: translateY(0) scale(0.98);
+}
 .button:hover svg {
   transform: translateX(4px);
 }
@@ -195,7 +220,7 @@ h3 {
 }
 .button-label > span {
   display: block;
-  transition: transform 0.38s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: transform 0.55s var(--ease-out);
 }
 .button-label > span + span {
   position: absolute;
@@ -322,7 +347,7 @@ h3 {
   background: var(--paper);
   color: var(--ink);
   box-shadow: 0 1px 0 var(--line);
-  animation: header-in 0.4s both;
+  animation: header-in 0.65s var(--ease-out) both;
 }
 .site-header.is-scrolled .header-cta {
   background: var(--ink);
@@ -391,7 +416,20 @@ h3 {
   letter-spacing: -0.04em;
   font-weight: 500;
   margin-top: 24px;
-  animation: hero-content-in 0.9s 0.2s both;
+  animation: none;
+}
+.hero-title-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.hero-title-line > span {
+  display: block;
+  animation: title-line-in 1.25s 0.12s var(--ease-out) both;
+}
+.hero-title-line + .hero-title-line > span {
+  animation-delay: 0.27s;
 }
 .hero-bottom {
   display: flex;
@@ -787,11 +825,25 @@ h3 {
   object-fit: cover;
   object-position: center;
 }
+.portrait-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.07);
+  transition:
+    opacity 0.85s var(--ease-fluid),
+    transform 1.3s var(--ease-out);
+  pointer-events: none;
+}
+.portrait-layer.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
 .perspective-copy {
   padding: 40px;
   display: flex;
   flex-direction: column;
-  animation: slide-copy-in 0.55s both;
+  animation: slide-copy-in 0.85s var(--ease-out) both;
 }
 .perspective-focus {
   border-bottom: 1px solid var(--line);
@@ -1079,6 +1131,13 @@ h3 {
   transform: translateY(0);
 }
 .insight-dialog {
+  opacity: 0;
+  transform: translateY(22px) scale(0.98);
+  transition:
+    opacity 0.3s,
+    transform 0.5s var(--ease-out),
+    overlay 0.5s allow-discrete,
+    display 0.5s allow-discrete;
   border: 1px solid var(--line);
   background: var(--paper);
   color: var(--ink);
@@ -1090,12 +1149,33 @@ h3 {
   box-shadow: 0 20px 100px #0005;
 }
 .insight-dialog::backdrop {
+  opacity: 0;
+  transition:
+    opacity 0.35s,
+    display 0.5s allow-discrete,
+    overlay 0.5s allow-discrete;
   background: #0009;
   backdrop-filter: blur(5px);
 }
 .dialog-content {
   padding: 50px;
   position: relative;
+}
+.insight-dialog[open] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.insight-dialog[open]::backdrop {
+  opacity: 1;
+}
+@starting-style {
+  .insight-dialog[open] {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+  }
+  .insight-dialog[open]::backdrop {
+    opacity: 0;
+  }
 }
 .dialog-close {
   display: block;
@@ -1393,6 +1473,90 @@ h3 {
 }
 .not-found .button {
   margin-top: 25px;
+}
+@keyframes title-line-in {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes photo-drift {
+  from {
+    translate: 0 -4%;
+  }
+  to {
+    translate: 0 4%;
+  }
+}
+@keyframes hero-depth {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 10%;
+  }
+}
+@keyframes reading-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    display: block;
+    position: fixed;
+    inset: 0 0 auto;
+    height: 2px;
+    background: #b7aa97;
+    z-index: 70;
+    pointer-events: none;
+    transform-origin: left;
+    animation: reading-progress linear both;
+    animation-timeline: scroll(root);
+  }
+  @media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .service-photo,
+    .focus-photo,
+    .cta-panel {
+      view-timeline-name: --photo;
+      view-timeline-axis: block;
+    }
+    .service-photo > img,
+    .focus-photo > img,
+    .cta-panel > img {
+      scale: 1.1;
+      animation: photo-drift linear both;
+      animation-timeline: --photo;
+      animation-range: entry 0% exit 100%;
+    }
+    .hero-image {
+      scale: 1.06;
+      animation: hero-depth linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0px 110vh;
+    }
+  }
+}
+@supports (interpolate-size: allow-keywords) and selector(::details-content) {
+  .faq-list details::details-content {
+    interpolate-size: allow-keywords;
+    block-size: 0;
+    opacity: 0;
+    overflow: clip;
+    transition:
+      block-size 0.5s var(--ease-out),
+      opacity 0.35s,
+      content-visibility 0.5s allow-discrete;
+  }
+  .faq-list details[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
 }
 @keyframes hero-content-in {
   from {
@@ -1696,7 +1860,17 @@ h3 {
     background: var(--paper);
     color: var(--ink);
   }
+  .mobile-nav {
+    opacity: 0;
+    transform: translateY(-12px);
+    transition:
+      opacity 0.25s,
+      transform 0.45s var(--ease-out),
+      display 0.45s allow-discrete;
+  }
   .mobile-nav:not([hidden]) {
+    opacity: 1;
+    transform: translateY(0);
     display: flex;
     position: absolute;
     left: 0;
@@ -1708,7 +1882,13 @@ h3 {
     padding: 15px 24px 28px;
     border-bottom: 1px solid var(--line);
     box-shadow: 0 20px 30px #0002;
-    animation: faq-in 0.3s both;
+    animation: none;
+  }
+  @starting-style {
+    .mobile-nav:not([hidden]) {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
   }
   .mobile-nav a {
     padding: 14px 0;
@@ -2244,6 +2424,13 @@ h3 {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .scroll-progress {
+    display: none;
+  }
+  .insight-dialog::backdrop,
+  .faq-list details::details-content {
+    transition: none !important;
+  }
   html {
     scroll-behavior: auto;
   }
