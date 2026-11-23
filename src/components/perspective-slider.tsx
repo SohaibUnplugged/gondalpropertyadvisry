@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Image from "next/image";
+import { SocietyImage } from "./society-image";
 import { perspectives } from "@/lib/site";
 
 export function PerspectiveSlider() {
@@ -49,7 +49,7 @@ export function PerspectiveSlider() {
               aria-hidden={active !== index}
               key={perspective.image}
             >
-              <Image
+              <SocietyImage
                 src={perspective.image}
                 alt={`${perspective.label}: supplied housing society interior photograph`}
                 fill

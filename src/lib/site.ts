@@ -20,7 +20,7 @@ export const services = [
     title: "Buying a property",
     text: "Buying a home or plot? Discuss your preferred society, budget, block, and timeline directly with Usman Ali.",
     icon: "home",
-    image: "/images/gondal/grand-city-kharian-inside.webp",
+    image: "/images/gondal/grand-city-kharian-inside-987f37b0af09.webp",
     alt: "Grand City Kharian, supplied interior photograph",
     deliverables: [
       "Your priorities and preferences",
@@ -34,7 +34,7 @@ export const services = [
     title: "Selling a property",
     text: "Share your society, block, property details, and asking expectations. Usman will discuss your selling priorities and next steps.",
     icon: "key",
-    image: "/images/gondal/new-metro-city-kharian-inside.webp",
+    image: "/images/gondal/new-metro-city-kharian-inside-19ec5ec9250a.webp",
     alt: "New Metro City Kharian, supplied interior photograph",
     deliverables: [
       "Your property and its context",
@@ -48,8 +48,8 @@ export const services = [
     title: "Property investment",
     text: "Compare your property goals with your budget and holding period. Discuss the questions around location, charges, documentation, and resale.",
     icon: "building",
-    image: "/images/gondal/citi-housing-kharian-inside.webp",
-    alt: "Citi Housing Kharian, supplied interior photograph",
+    image: "/images/gondal/citi-housing-kharian-entrance-fcb4dd24cbb4.webp",
+    alt: "Citi Housing Kharian, supplied entrance photograph",
     deliverables: [
       "Your objectives and time horizon",
       "Budget and risk considerations",
@@ -77,28 +77,28 @@ export const advisoryService = {
 export const propertyTopics = [
   {
     title: "Residential",
-    image: "/images/gondal/dream-city-kharian-inside.webp",
+    image: "/images/gondal/dream-city-kharian-inside-8d50d55b9e82.webp",
     text: "A place that fits the way you live.",
     detail: "Your lifestyle, your priorities, your next chapter.",
     focus: "Homes & living",
   },
   {
     title: "Commercial",
-    image: "/images/gondal/canal-city-sarai-alamgir-inside.webp",
+    image: "/images/gondal/canal-city-sarai-alamgir-inside-5e1d58213a09.webp",
     text: "Space for the work you want to do.",
     detail: "Discuss the purpose, location, and practical needs of your space.",
     focus: "Business & workspace",
   },
   {
     title: "Land & plots",
-    image: "/images/gondal/chenab-orchard-gujrat-inside.webp",
+    image: "/images/gondal/chenab-orchard-gujrat-inside-8e52e0dd9e5d.webp",
     text: "Start with a clearer understanding.",
     detail: "Talk through your goals and the questions you want to explore.",
     focus: "Land & possibilities",
   },
   {
     title: "Investment",
-    image: "/images/gondal/new-city-kharian-inside.webp",
+    image: "/images/gondal/new-city-kharian-inside-8b23ce453044.webp",
     text: "Think about the bigger picture.",
     detail: "Your time horizon, your objectives, your appetite for risk.",
     focus: "Long-term thinking",
@@ -111,7 +111,7 @@ export const perspectives = [
     text: "Before talking about a property, talk about how you want to live. The commute, the surroundings, and the space you need all deserve a place in the conversation.",
     label: "For buyers",
     focus: "Lifestyle before a shortlist",
-    image: "/images/gondal/river-garden-gujrat-inside.webp",
+    image: "/images/gondal/river-garden-gujrat-inside-cabcb9d97a3b.webp",
   },
   {
     title: "Your next chapter deserves a clear starting point.",
@@ -133,7 +133,7 @@ export const guides = [
   {
     title: "Start your property conversation with the right questions",
     category: "Getting started",
-    image: "/images/gondal/gulshan-e-razzaq-inside.webp",
+    image: "/images/gondal/gulshan-e-razzaq-inside-a7b3ff55e364.webp",
     paragraphs: [
       "Tell Usman which society you are considering and whether you want to buy or sell. Include the block, plot size, and property type if you already know them. A realistic budget and timeline make the conversation more useful.",
       "Ask what information is available for the specific property: its location, ownership or allotment documents, payment position, outstanding charges, and transfer process. Society-wide information does not establish the status of an individual plot.",
@@ -143,7 +143,7 @@ export const guides = [
   {
     title: "Think about the life around your next home",
     category: "A fresh perspective",
-    image: "/images/gondal/buraq-city-inside.webp",
+    image: "/images/gondal/buraq-city-entrance-7f740a0334f3.webp",
     paragraphs: [
       "Choosing a society and choosing a particular plot are separate decisions. Think about your daily journeys, family needs, and when you intend to build or move. Share those priorities with Usman alongside your budget.",
       "A project photograph shows one view at one point in time. Before deciding, visit the specific location where possible and ask about road access, utilities, surrounding construction, and the facilities that matter to you.",
@@ -153,7 +153,7 @@ export const guides = [
   {
     title: "Make a little room for a more considered decision",
     category: "Planning your next move",
-    image: "/images/gondal/grand-city-kharian-inside.webp",
+    image: "/images/gondal/grand-city-kharian-inside-987f37b0af09.webp",
     paragraphs: [
       "Start with your purpose: a future home, a business use, or a property you may hold and sell later. Explain your expected holding period and how much flexibility you need if your circumstances change.",
       "Ask for a clear breakdown of the proposed price, any instalments, outstanding dues, transfer costs, and other charges that may apply. Confirm these for the specific property and transaction rather than relying on a general advertisement.",
@@ -214,49 +214,49 @@ export const societies = [
     slug: "grand-city-kharian",
     name: "Grand City Kharian",
     text: "Discuss your preferred block, plot requirements, and the questions to take into a site visit.",
-    image: "/images/gondal/grand-city-kharian-entrance.webp",
+    image: "/images/gondal/grand-city-kharian-entrance-94668106eef6.webp",
   },
   {
     slug: "new-metro-city-kharian",
     name: "New Metro City Kharian",
     text: "Talk through your plans for New Metro City and the information you need before choosing an option.",
-    image: "/images/gondal/new-metro-city-kharian-entrance.webp",
+    image: "/images/gondal/new-metro-city-kharian-entrance-d4e350eecf2c.webp",
   },
   {
     slug: "citi-housing-kharian",
     name: "Citi Housing Kharian",
     text: "Bring your budget and preferences to a conversation about buying or selling in Citi Housing.",
-    image: "/images/gondal/citi-housing-kharian-entrance.webp",
+    image: "/images/gondal/citi-housing-kharian-entrance-fcb4dd24cbb4.webp",
   },
   {
     slug: "dream-city-kharian",
     name: "Dream City Kharian",
     text: "Explore how your plans for a home or plot align with your preferred location and timeline.",
-    image: "/images/gondal/dream-city-kharian-entrance.webp",
+    image: "/images/gondal/dream-city-kharian-entrance-ebb2819d9ded.webp",
   },
   {
     slug: "new-city-kharian",
     name: "New City Kharian",
     text: "Discuss your property requirements, access priorities, and next steps for New City Kharian.",
-    image: "/images/gondal/new-city-kharian-entrance.webp",
+    image: "/images/gondal/new-city-kharian-entrance-7b96bb292741.webp",
   },
   {
     slug: "buraq-city",
     name: "Buraq City",
     text: "Ask Usman about your options and the details to clarify before progressing with a property.",
-    image: "/images/gondal/buraq-city-entrance.webp",
+    image: "/images/gondal/buraq-city-entrance-7f740a0334f3.webp",
   },
   {
     slug: "canal-city-sarai-alamgir",
     name: "Canal City Sarai Alamgir",
     text: "Talk about your preferred surroundings, property needs, and plans for Canal City.",
-    image: "/images/gondal/canal-city-sarai-alamgir-entrance.webp",
+    image: "/images/gondal/canal-city-sarai-alamgir-entrance-f03a9067df21.webp",
   },
   {
     slug: "gulshan-e-razzaq",
     name: "Gulshan-e-Razzaq",
     text: "Start with the property type you have in mind and the practical questions you want answered.",
-    image: "/images/gondal/gulshan-e-razzaq-entrance.webp",
+    image: "/images/gondal/gulshan-e-razzaq-entrance-b6c0191fc14f.webp",
   },
   {
     slug: "eiffel-city-dinga",
@@ -268,13 +268,13 @@ export const societies = [
     slug: "chenab-orchard-gujrat",
     name: "Chenab Orchard Gujrat",
     text: "Share your plans for Chenab Orchard and the location, budget, and timing that work for you.",
-    image: "/images/gondal/chenab-orchard-gujrat-entrance.webp",
+    image: "/images/gondal/chenab-orchard-gujrat-entrance-5b6be1d21213.webp",
   },
   {
     slug: "river-garden-gujrat",
     name: "River Garden Gujrat",
     text: "Consider your next move in River Garden with direct guidance from Usman on what to discuss next.",
-    image: "/images/gondal/river-garden-gujrat-entrance.webp",
+    image: "/images/gondal/river-garden-gujrat-entrance-e078caeb107c.webp",
   },
   {
     slug: "noor-garden-gujrat",

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { SocietyImage } from "./society-image";
 import { ActionLink, HoverText, SectionLabel } from "./action-link";
 import { societies, site } from "@/lib/site";
 
@@ -32,7 +32,7 @@ export function Societies() {
                   rel="noopener noreferrer"
                   aria-label={`Enquire about ${society.name}`}
                 >
-                  <Image
+                  <SocietyImage
                     src={society.image}
                     alt={`${society.name} entrance, supplied project photograph`}
                     fill

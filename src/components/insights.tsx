@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Image from "next/image";
+import { SocietyImage } from "./society-image";
 import { guides, site } from "@/lib/site";
 import { HoverText } from "./action-link";
 
@@ -25,7 +25,7 @@ export function Insights() {
             }}
           >
             <div className="insight-photo">
-              <Image
+              <SocietyImage
                 src={item.image}
                 alt={`${item.category}: supplied housing society photograph`}
                 fill

@@ -23,5 +23,132 @@
       "note": "Society names follow supplied archive labels. Photographs identify projects; they do not establish current development, inventory, approvals, or an authorized agency relationship."
     }
   ],
-  "fontUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/geist/Geist%5Bwght%5D.ttf"
+  "fontUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/geist/Geist%5Bwght%5D.ttf",
+  "societyRefresh": {
+    "archive": "housing-societies-images (1).zip",
+    "processing": "Original dimensions retained; lossless WebP encoding after orientation normalization; metadata removed. Content hashes invalidate previously cached optimized images. Delivered through Next.js at quality 90.",
+    "retained": ["Eiffel City Dinga", "Noor Garden Gujrat"],
+    "images": [
+      {
+        "file": "public/images/gondal/grand-city-kharian-entrance-94668106eef6.webp",
+        "source": "housing-societies-images (1).zip/01-grand-city-kharian/1-front-gate.webp",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "public/images/gondal/grand-city-kharian-inside-987f37b0af09.webp",
+        "source": "housing-societies-images (1).zip/01-grand-city-kharian/2-inside.webp",
+        "width": 1102,
+        "height": 1032
+      },
+      {
+        "file": "public/images/gondal/new-metro-city-kharian-entrance-d4e350eecf2c.webp",
+        "source": "housing-societies-images (1).zip/02-new-metro-city-kharian/1-front-gate.jpg",
+        "width": 960,
+        "height": 710
+      },
+      {
+        "file": "public/images/gondal/new-metro-city-kharian-inside-19ec5ec9250a.webp",
+        "source": "housing-societies-images (1).zip/02-new-metro-city-kharian/2-inside.webp",
+        "width": 2000,
+        "height": 800
+      },
+      {
+        "file": "public/images/gondal/citi-housing-kharian-entrance-fcb4dd24cbb4.webp",
+        "source": "housing-societies-images (1).zip/03-citi-housing-kharian/1-front-gate.jpg",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "file": "public/images/gondal/citi-housing-kharian-inside-3d32141f821a.webp",
+        "source": "housing-societies-images (1).zip/03-citi-housing-kharian/2-inside.webp",
+        "width": 582,
+        "height": 441
+      },
+      {
+        "file": "public/images/gondal/dream-city-kharian-entrance-ebb2819d9ded.webp",
+        "source": "housing-societies-images (1).zip/04-dream-city-kharian/1-front-gate.jpeg",
+        "width": 1024,
+        "height": 682
+      },
+      {
+        "file": "public/images/gondal/dream-city-kharian-inside-8d50d55b9e82.webp",
+        "source": "housing-societies-images (1).zip/04-dream-city-kharian/2-inside.jpg",
+        "width": 1568,
+        "height": 882
+      },
+      {
+        "file": "public/images/gondal/new-city-kharian-entrance-7b96bb292741.webp",
+        "source": "housing-societies-images (1).zip/05-new-city-kharian/1-front-gate.jpeg",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "file": "public/images/gondal/new-city-kharian-inside-8b23ce453044.webp",
+        "source": "housing-societies-images (1).zip/05-new-city-kharian/2-inside.jpg",
+        "width": 1440,
+        "height": 706
+      },
+      {
+        "file": "public/images/gondal/buraq-city-entrance-7f740a0334f3.webp",
+        "source": "housing-societies-images (1).zip/06-buraq-city/1-front-gate.jpg",
+        "width": 1600,
+        "height": 619
+      },
+      {
+        "file": "public/images/gondal/buraq-city-inside-e1964c5aad02.webp",
+        "source": "housing-societies-images (1).zip/06-buraq-city/2-inside.jpeg",
+        "width": 420,
+        "height": 260
+      },
+      {
+        "file": "public/images/gondal/canal-city-sarai-alamgir-entrance-f03a9067df21.webp",
+        "source": "housing-societies-images (1).zip/07-canal-city-sarai-alamgir/1-front-gate.jpg",
+        "width": 1910,
+        "height": 1277
+      },
+      {
+        "file": "public/images/gondal/canal-city-sarai-alamgir-inside-5e1d58213a09.webp",
+        "source": "housing-societies-images (1).zip/07-canal-city-sarai-alamgir/2-inside.jpg",
+        "width": 950,
+        "height": 400
+      },
+      {
+        "file": "public/images/gondal/gulshan-e-razzaq-entrance-b6c0191fc14f.webp",
+        "source": "housing-societies-images (1).zip/08-gulshan-e-razzaq/1-front-gate.jpg",
+        "width": 700,
+        "height": 525
+      },
+      {
+        "file": "public/images/gondal/gulshan-e-razzaq-inside-a7b3ff55e364.webp",
+        "source": "housing-societies-images (1).zip/08-gulshan-e-razzaq/2-inside.jpg",
+        "width": 700,
+        "height": 473
+      },
+      {
+        "file": "public/images/gondal/chenab-orchard-gujrat-entrance-5b6be1d21213.webp",
+        "source": "housing-societies-images (1).zip/10-chenab-orchard-gujrat/1-front-gate.jpg",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "file": "public/images/gondal/chenab-orchard-gujrat-inside-8e52e0dd9e5d.webp",
+        "source": "housing-societies-images (1).zip/10-chenab-orchard-gujrat/2-inside.jpg",
+        "width": 800,
+        "height": 550
+      },
+      {
+        "file": "public/images/gondal/river-garden-gujrat-entrance-e078caeb107c.webp",
+        "source": "housing-societies-images (1).zip/11-river-garden-gujrat/1-front-gate.jpg",
+        "width": 961,
+        "height": 509
+      },
+      {
+        "file": "public/images/gondal/river-garden-gujrat-inside-cabcb9d97a3b.webp",
+        "source": "housing-societies-images (1).zip/11-river-garden-gujrat/2-inside.jpeg",
+        "width": 800,
+        "height": 600
+      }
+    ]
+  }
 }

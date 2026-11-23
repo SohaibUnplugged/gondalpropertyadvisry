@@ -1,6 +1,7 @@
 ﻿import Image from "next/image";
 import { HeroImage } from "@/components/hero-image";
 import { Societies } from "@/components/societies";
+import { SocietyImage } from "@/components/society-image";
 import { Icon } from "@/components/icon";
 import { ContactForm } from "@/components/contact-form";
 import { ActionLink, HoverText, SectionLabel } from "@/components/action-link";
@@ -214,7 +215,7 @@ export default function Home() {
                   </a>
                 </div>
                 <div className="service-photo" data-reveal data-delay={80}>
-                  <Image
+                  <SocietyImage
                     src={service.image}
                     alt={service.alt}
                     fill
@@ -315,7 +316,7 @@ export default function Home() {
                     aria-label={`Discuss ${topic.title.toLowerCase()}`}
                     data-reveal
                   >
-                    <Image
+                    <SocietyImage
                       src={topic.image}
                       alt={`${topic.title} discussion: supplied housing society photograph`}
                       fill
@@ -387,8 +388,8 @@ export default function Home() {
                 data-delay={index * 70}
               >
                 {index === 2 && (
-                  <Image
-                    src="/images/gondal/canal-city-sarai-alamgir-inside.webp"
+                  <SocietyImage
+                    src="/images/gondal/canal-city-sarai-alamgir-inside-5e1d58213a09.webp"
                     alt="Canal City Sarai Alamgir, supplied interior photograph"
                     fill
                     sizes="(max-width: 700px) 100vw, 33vw"

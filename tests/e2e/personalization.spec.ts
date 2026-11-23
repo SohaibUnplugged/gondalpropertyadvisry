@@ -40,6 +40,10 @@ test("every supplied society has a loaded image and a correctly addressed enquir
         image.evaluate((element: HTMLImageElement) => element.naturalWidth),
       )
       .toBeGreaterThan(0);
+    const source = await image.evaluate(
+      (element: HTMLImageElement) => element.currentSrc,
+    );
+    expect(new URL(source).searchParams.get("q")).toBe("90");
     for (const link of await card.getByRole("link").all()) {
       const url = new URL((await link.getAttribute("href"))!);
       expect(url.origin + url.pathname).toBe(site.whatsapp);
