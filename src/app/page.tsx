@@ -1,7 +1,8 @@
 ﻿import Image from "next/image";
 import { Icon } from "@/components/icon";
 import { ContactForm } from "@/components/contact-form";
-import { ActionLink, SectionLabel } from "@/components/action-link";
+import { ActionLink, HoverText, SectionLabel } from "@/components/action-link";
+import { ServiceStack } from "@/components/service-stack";
 import { Marquee } from "@/components/marquee";
 import { PerspectiveSlider } from "@/components/perspective-slider";
 import { Insights } from "@/components/insights";
@@ -197,7 +198,7 @@ export default function Home() {
               steps that deserve your attention.
             </p>
           </div>
-          <div className="service-list">
+          <ServiceStack>
             {[...services, advisoryService].map((service, index) => (
               <article className="service-row" key={service.title}>
                 <div className="service-copy" data-reveal>
@@ -236,7 +237,7 @@ export default function Home() {
                 <span className="sr-only">Service {index + 1}</span>
               </article>
             ))}
-          </div>
+          </ServiceStack>
           <div className="section-action" data-reveal>
             <ActionLink href="#contact" className="button-dark">
               Explore Your Options
@@ -278,7 +279,11 @@ export default function Home() {
                 <div className="process-card-copy">
                   <span className="process-index">( P - 0{index + 1} )</span>
                   <h3 id={`process-title-${index}`}>{step.title}</h3>
-                  <p>{step.text}</p>
+                  <div className="process-description">
+                    <div>
+                      <p>{step.text}</p>
+                    </div>
+                  </div>
                 </div>
               </article>
             ))}
@@ -324,7 +329,11 @@ export default function Home() {
                     />
                   </a>
                   <div className="focus-details" data-reveal>
-                    <h3>{topic.title}</h3>
+                    <h3>
+                      <a href="#contact" className="focus-title-link">
+                        <HoverText>{topic.title}</HoverText>
+                      </a>
+                    </h3>
                     <p>{topic.text}</p>
                     <dl>
                       <div>

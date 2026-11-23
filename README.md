@@ -40,6 +40,7 @@ The check command runs ESLint, route type generation, TypeScript, a production b
 
 - src/app/: the main page, shared layout, custom 404, sitemap, robots, icon, and styles.
 - src/components/: reusable buttons, brand/icons, responsive navigation, footer, motion controller, marquee, perspective slider, insight dialogs, and WhatsApp enquiry form.
+- src/components/service-stack.tsx: progressive sticky service stacking with viewport-aware pinning offsets.
 - src/lib/site.ts: business identity, contact details, navigation, services, process, and FAQ copy.
 - src/lib/seo.ts: validated metadata, canonical origin, social cards, and safe JSON-LD serialization.
 - public/images/reference/: locally served AVIF reference photographs.
@@ -68,7 +69,11 @@ Browsers with scroll-timeline support add gentle photo parallax and a thin readi
 
 The scrolling topic strip has a pause/play control and also pauses on hover. The perspective slider crossfades portraits while its text enters separately, and supports previous/next buttons, direct slide selection, arrow keys, and touch swipes. It does not auto-advance. Insight cards open labelled native dialogs with eased entry/exit, focus management, and Escape dismissal. FAQ expansion uses intrinsic-size transitions where supported. Image hover effects, rolling button labels, process-card expansion, mobile menu transitions, and the post-hero navigation complete the interaction system. All motion respects prefers-reduced-motion; process descriptions remain visible on touch layouts and with reduced motion.
 
-Browser tests cover these interactions, actual wheel easing, anchor history/focus, portrait crossfades, native dialog scrolling, live reduced-motion changes, keyboard and touch behavior, the no-JavaScript fallback, and reference typography/layout checks alongside the existing SEO, contact, and accessibility checks.
+Service cards now pin at the reference's 100px desktop offset, with each incoming opaque card covering the previous one. A ResizeObserver adjusts the offset for cards taller than the viewport so the full content can be read before pinning. There is no per-scroll stacking JavaScript. Narrow screens, reduced motion, and no-JavaScript browsing use a normal flowing list. Keyboard focus temporarily returns the stack to normal flow so covered links remain reachable.
+
+The shared HoverText primitive provides the same masked text transition for action buttons, property-perspective titles, and insight titles. Its duplicate visual layer is hidden from assistive technology. Process descriptions expand within fixed-height cards using intrinsic grid sizing, with matching hover and keyboard focus states; descriptions stay open on touch layouts. These interactions reproduce the observed reference behaviors without inventing business content.
+
+Browser tests cover these interactions, actual service-card overlap and paint order, short viewports, covered-control keyboard access, hover/focus text reveals, actual wheel easing, anchor history/focus, portrait crossfades, native dialog scrolling, live reduced-motion changes, keyboard and touch behavior, the no-JavaScript fallback, and reference typography/layout checks alongside the existing SEO, contact, and accessibility checks.
 
 ## Imagery and personalization
 

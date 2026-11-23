@@ -212,23 +212,40 @@ h3 {
 .button:hover svg {
   transform: translateX(4px);
 }
-.button-label {
+.hover-text {
   position: relative;
   overflow: hidden;
   display: block;
+  line-height: inherit;
+}
+.button-label {
   line-height: 1.25;
 }
-.button-label > span {
+.hover-text > span {
   display: block;
-  transition: transform 0.55s var(--ease-out);
+  transition:
+    transform 0.55s var(--ease-out),
+    opacity 0.35s;
 }
-.button-label > span + span {
+.hover-text > span + span {
+  opacity: 0;
   position: absolute;
   inset: 100% 0 auto;
 }
-.button:hover .button-label > span,
-.button:focus-visible .button-label > span {
+.button:is(:hover, :focus-visible) .hover-text > span,
+.focus-row:is(:hover, :focus-within) .hover-text > span,
+.insight-card:is(:hover, :focus-visible) .hover-text > span {
   transform: translateY(-100%);
+}
+.button:is(:hover, :focus-visible) .hover-text > span:first-child,
+.focus-row:is(:hover, :focus-within) .hover-text > span:first-child,
+.insight-card:is(:hover, :focus-visible) .hover-text > span:first-child {
+  opacity: 0;
+}
+.button:is(:hover, :focus-visible) .hover-text > span + span,
+.focus-row:is(:hover, :focus-within) .hover-text > span + span,
+.insight-card:is(:hover, :focus-visible) .hover-text > span + span {
+  opacity: 1;
 }
 .button-dark {
   background: var(--ink);
@@ -611,13 +628,29 @@ h3 {
 .services-section {
   padding-bottom: 140px;
 }
+.service-list {
+  position: relative;
+  isolation: isolate;
+}
 .service-row {
+  background: var(--paper);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 100px;
   gap: 40px;
   position: relative;
   border-top: 1px solid var(--line);
-  padding: 60px 0 40px;
+  padding: 40px 0;
+}
+@media screen and (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+  .service-list[data-stack="enabled"] .service-row {
+    position: sticky;
+    top: var(--stack-top, 100px);
+  }
+  /* Keyboard users can reach every card without another card covering its controls. */
+  .service-list[data-stack="enabled"]:has(:focus-visible) .service-row {
+    position: relative;
+    top: auto;
+  }
 }
 .service-row:last-child {
   border-bottom: 1px solid var(--line);
@@ -656,9 +689,9 @@ h3 {
   object-fit: cover;
   transition: transform 0.8s cubic-bezier(0.2, 0.65, 0.25, 1);
 }
-.service-row:hover .service-photo > img,
-.focus-photo:hover > img,
-.insight-card:hover .insight-photo > img {
+.service-row:is(:hover, :focus-within) .service-photo > img,
+.focus-row:is(:hover, :focus-within) .focus-photo > img,
+.insight-card:is(:hover, :focus-visible) .insight-photo > img {
   transform: scale(1.045);
 }
 .service-diagonal {
@@ -714,26 +747,28 @@ h3 {
 .process-card p {
   font-size: 1rem;
   line-height: 1.5;
-  max-height: 0;
-  overflow: hidden;
+  padding-top: 16px;
+  transform: translateY(10px);
+  transition: transform 0.55s var(--ease-out);
+}
+.process-description {
+  display: grid;
+  grid-template-rows: 0fr;
   opacity: 0;
-  transform: translateY(12px);
   transition:
-    max-height 0.5s,
-    opacity 0.4s,
-    transform 0.4s,
-    margin 0.4s;
+    grid-template-rows 0.55s var(--ease-out),
+    opacity 0.4s;
 }
-.process-card:hover p,
-.process-card:focus-within p {
-  max-height: 190px;
+.process-description > div {
+  min-height: 0;
+  overflow: hidden;
+}
+.process-card:is(:hover, :focus-within) .process-description {
+  grid-template-rows: 1fr;
   opacity: 1;
-  transform: translateY(0);
-  margin-top: 16px;
 }
-.process-card:hover {
-  background: #fff;
-  transform: translateY(-5px);
+.process-card:is(:hover, :focus-within) p {
+  transform: translateY(0);
 }
 .focus-section .section-heading {
   padding-bottom: 28px;
@@ -1723,7 +1758,11 @@ h3 {
     max-height: none;
     opacity: 1;
     transform: none;
-    margin-top: 14px;
+    margin-top: 0;
+  }
+  .process-description {
+    grid-template-rows: 1fr;
+    opacity: 1;
   }
   .focus-layout {
     grid-template-columns: 1fr;
@@ -2424,6 +2463,17 @@ h3 {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .process-description {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+  .hover-text > span + span {
+    display: none;
+  }
+  .hover-text > span:first-child {
+    transform: none !important;
+    opacity: 1 !important;
+  }
   .scroll-progress {
     display: none;
   }
@@ -2452,9 +2502,19 @@ h3 {
     max-height: none;
     opacity: 1;
     transform: none;
-    margin-top: 16px;
+    margin-top: 0;
   }
   .marquee-track {
     animation: none !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse), print {
+  .process-description {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+  .process-card p {
+    transform: none;
   }
 }

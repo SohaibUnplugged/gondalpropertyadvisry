@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { guides, site } from "@/lib/site";
+import { HoverText } from "./action-link";
 
 export function Insights() {
   const [active, setActive] = useState(0);
@@ -32,7 +33,9 @@ export function Insights() {
               />
             </div>
             <span>{item.category}</span>
-            <h3>{item.title}</h3>
+            <h3>
+              <HoverText>{item.title}</HoverText>
+            </h3>
             <span className="insight-read">Read the perspective</span>
           </button>
         ))}

@@ -1,6 +1,21 @@
 import type { AnchorHTMLAttributes } from "react";
 import { Icon } from "./icon";
 
+export function HoverText({
+  children,
+  className = "",
+}: {
+  children: string;
+  className?: string;
+}) {
+  return (
+    <span className={`hover-text ${className}`}>
+      <span>{children}</span>
+      <span aria-hidden="true">{children}</span>
+    </span>
+  );
+}
+
 export function ActionLink({
   children,
   className = "",
@@ -12,10 +27,7 @@ export function ActionLink({
 }) {
   return (
     <a {...props} className={`button ${className}`}>
-      <span className="button-label">
-        <span>{children}</span>
-        <span aria-hidden="true">{children}</span>
-      </span>
+      <HoverText className="button-label">{children}</HoverText>
       {arrow && <Icon name="arrow" />}
     </a>
   );
