@@ -93,16 +93,49 @@ test("portrait changes crossfade without leaving the slider empty", async ({
 }) => {
   await page.goto("/#perspectives");
   const layers = page.locator(".portrait-layer");
+  // Sample the real opacity transitions at their midpoint, independently of runner latency.
+  await page.locator(".perspective-photo").evaluate((photo) => {
+    const observer = new MutationObserver(() => {
+      const transitions = photo
+        .getAnimations({ subtree: true })
+        .filter(
+          (animation) =>
+            animation instanceof CSSTransition &&
+            animation.transitionProperty === "opacity",
+        );
+      if (!transitions.length) return;
+      observer.disconnect();
+      transitions.forEach((animation) => {
+        animation.pause();
+        animation.currentTime =
+          Number(animation.effect!.getTiming().duration) / 2;
+      });
+      const visibleLayers = [
+        ...photo.querySelectorAll(".portrait-layer"),
+      ].filter((layer) => {
+        const opacity = Number(getComputedStyle(layer).opacity);
+        return opacity > 0.01 && opacity < 0.99;
+      });
+      (photo as HTMLElement).dataset.crossfadeLayers = String(
+        visibleLayers.length,
+      );
+      transitions.forEach((animation) => animation.play());
+    });
+    observer.observe(photo, {
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  });
   await page.getByRole("button", { name: "Next perspective" }).click();
   await expect(layers.nth(1)).toHaveClass(/is-active/);
   await expect
     .poll(() =>
-      layers.evaluateAll(
-        (elements) =>
-          elements
-            .map((element) => Number(getComputedStyle(element).opacity))
-            .filter((opacity) => opacity > 0.01 && opacity < 0.99).length,
-      ),
+      page
+        .locator(".perspective-photo")
+        .evaluate((photo) =>
+          Number((photo as HTMLElement).dataset.crossfadeLayers || 0),
+        ),
     )
     .toBeGreaterThan(0);
   await expect(layers.nth(0)).toHaveCSS("opacity", "0");
