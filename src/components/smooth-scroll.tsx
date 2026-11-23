@@ -39,7 +39,6 @@ export function SmoothScroll() {
 
     const navigate = (event: MouseEvent) => {
       if (
-        !instance ||
         event.defaultPrevented ||
         event.button !== 0 ||
         event.metaKey ||
@@ -73,22 +72,22 @@ export function SmoothScroll() {
       event.preventDefault();
       if (location.hash !== url.hash)
         history.pushState(history.state, "", url.hash);
-      instance.scrollTo(target, {
-        onComplete: () => {
-          restoreTarget?.();
-          const previous = target.getAttribute("tabindex");
-          target.setAttribute("tabindex", "-1");
-          target.focus({ preventScroll: true });
-          const restore = () => {
-            if (previous === null) target.removeAttribute("tabindex");
-            else target.setAttribute("tabindex", previous);
-            target.removeEventListener("blur", restore);
-            restoreTarget = undefined;
-          };
-          restoreTarget = restore;
-          target.addEventListener("blur", restore, { once: true });
-        },
-      });
+      // Focus belongs to the destination immediately, including before Lenis loads.
+      // A delayed callback could otherwise steal focus from a subsequent interaction.
+      restoreTarget?.();
+      const previous = target.getAttribute("tabindex");
+      target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+      const restore = () => {
+        if (previous === null) target.removeAttribute("tabindex");
+        else target.setAttribute("tabindex", previous);
+        target.removeEventListener("blur", restore);
+        restoreTarget = undefined;
+      };
+      restoreTarget = restore;
+      target.addEventListener("blur", restore, { once: true });
+      if (instance) instance.scrollTo(target, { duration: 1.2 });
+      else target.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
     const cancelNavigation = () =>
