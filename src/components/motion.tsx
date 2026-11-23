@@ -7,7 +7,6 @@ const ease = "cubic-bezier(.16,1,.3,1)";
 
 export function PageMotion() {
   useEffect(() => {
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     const animations = new Set<Animation>();
     const elements = [
       ...document.querySelectorAll<HTMLElement>("[data-reveal]"),
@@ -31,7 +30,6 @@ export function PageMotion() {
     const reveal = (element: HTMLElement) => {
       element.dataset.revealed = "true";
       element.dataset.motion = "revealed";
-      if (preference.matches) return;
       const siblings = [...(element.parentElement?.children ?? [])].filter(
         (sibling) => sibling.hasAttribute("data-reveal"),
       );
@@ -41,9 +39,11 @@ export function PageMotion() {
       const image = element.matches(
         ".service-photo,.focus-photo,.about-photo-card,.cta-panel",
       );
+      // Keep service controls stationary while sticky cards overlap, especially on short screens.
+      const distance = element.matches(".service-copy") ? 0 : image ? 44 : 34;
       const start: Keyframe = {
         opacity: 0,
-        transform: `translate3d(0,${image ? 44 : 34}px,0)`,
+        transform: `translate3d(0,${distance}px,0)`,
       };
       const end: Keyframe = { opacity: 1, transform: "translate3d(0,0,0)" };
       if (image) {
@@ -77,29 +77,16 @@ export function PageMotion() {
     );
     elements.forEach((element) => {
       // Only conceal offscreen content after JS is ready; server HTML stays readable.
-      if (
-        !preference.matches &&
-        element.getBoundingClientRect().top > window.innerHeight
-      )
+      if (element.getBoundingClientRect().top > window.innerHeight)
         element.dataset.motion = "pending";
       observer.observe(element);
     });
-    const stop = () => {
-      if (!preference.matches) return;
-      animations.forEach((animation) => animation.cancel());
-      elements.forEach((element) => {
-        if (element.dataset.motion === "pending")
-          element.dataset.motion = "revealed";
-      });
-    };
-    preference.addEventListener("change", stop);
     return () => {
       observer.disconnect();
       animations.forEach((animation) => animation.cancel());
       elements.forEach((element) => {
         delete element.dataset.motion;
       });
-      preference.removeEventListener("change", stop);
     };
   }, []);
   return (

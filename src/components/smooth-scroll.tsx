@@ -5,7 +5,6 @@ import type Lenis from "lenis";
 
 export function SmoothScroll() {
   useEffect(() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const finePointer = window.matchMedia("(pointer: fine)");
     let instance: Lenis | null = null;
     let generation = 0;
@@ -15,7 +14,7 @@ export function SmoothScroll() {
       const current = ++generation;
       instance?.destroy();
       instance = null;
-      if (reduced.matches || !finePointer.matches) return;
+      if (!finePointer.matches) return;
       let lenisModule: typeof import("lenis");
       try {
         lenisModule = await import("lenis");
@@ -33,6 +32,8 @@ export function SmoothScroll() {
         lerp: 0.09,
         smoothWheel: true,
         syncTouch: false,
+        // This site's motion is always enabled, as explicitly requested by the owner.
+        respectReducedMotion: false,
       });
     };
 
@@ -93,7 +94,6 @@ export function SmoothScroll() {
     const cancelNavigation = () =>
       instance?.scrollTo(window.scrollY, { immediate: true });
     void configure();
-    reduced.addEventListener("change", configure);
     finePointer.addEventListener("change", configure);
     document.addEventListener("click", navigate);
     window.addEventListener("popstate", cancelNavigation);
@@ -101,7 +101,6 @@ export function SmoothScroll() {
       ++generation;
       instance?.destroy();
       restoreTarget?.();
-      reduced.removeEventListener("change", configure);
       finePointer.removeEventListener("change", configure);
       document.removeEventListener("click", navigate);
       window.removeEventListener("popstate", cancelNavigation);

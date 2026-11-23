@@ -7,9 +7,7 @@ export function ServiceStack({ children }: { children: ReactNode }) {
   useEffect(() => {
     const element = list.current;
     if (!element) return;
-    const preference = window.matchMedia(
-      "(min-width: 901px) and (prefers-reduced-motion: no-preference)",
-    );
+    const preference = window.matchMedia("(min-width: 901px)");
     const rows = [...element.querySelectorAll<HTMLElement>(".service-row")];
     let frame = 0;
     const measure = () => {

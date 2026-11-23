@@ -34,21 +34,24 @@ test("desktop wheel input is eased while touch devices retain native scrolling",
   expect(samples.some((position) => position > 0 && position < 550)).toBe(true);
 });
 
-test("reduced motion disables smoothing and releases pending content immediately", async ({
+test("system motion changes do not disable the site's animation policy", async ({
   page,
+  isMobile,
 }) => {
   await page.goto("/");
   await expect
     .poll(() => page.locator('[data-motion="pending"]').count())
     .toBeGreaterThan(0);
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await expect(page.locator("html")).not.toHaveClass(/lenis/);
-  await expect(page.locator('[data-motion="pending"]')).toHaveCount(0);
+  if (!isMobile) await expect(page.locator("html")).toHaveClass(/lenis/);
+  await expect
+    .poll(() => page.locator('[data-motion="pending"]').count())
+    .toBeGreaterThan(0);
   await expect(page.locator(".hero-title-line > span").first()).toHaveCSS(
     "animation-name",
-    "none",
+    "title-line-in",
   );
-  await expect(page.locator(".portrait-layer").first()).toHaveCSS(
+  await expect(page.locator(".portrait-layer").first()).not.toHaveCSS(
     "transition-duration",
     "0s",
   );

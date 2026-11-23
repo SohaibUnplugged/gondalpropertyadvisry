@@ -179,20 +179,28 @@ test("project and article titles reveal masked text with a single accessible nam
   await expect(article).toHaveCount(1);
 });
 
-test("reduced motion uses a static service list and always-readable process text", async ({
+test("stacking and reveals remain enabled under the system reduced-motion flag", async ({
   page,
+  isMobile,
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
-  await expect(page.locator(".service-list")).not.toHaveAttribute(
-    "data-stack",
-    "enabled",
-  );
+  if (isMobile)
+    await expect(page.locator(".service-list")).not.toHaveAttribute(
+      "data-stack",
+      "enabled",
+    );
+  else
+    await expect(page.locator(".service-list")).toHaveAttribute(
+      "data-stack",
+      "enabled",
+    );
   await expect(page.locator(".service-row").first()).toHaveCSS(
     "position",
-    "relative",
+    isMobile ? "relative" : "sticky",
   );
   const description = page.locator(".process-description").first();
+  await page.locator(".process-card").first().focus();
   await expect
     .poll(() =>
       description.evaluate((element) => element.getBoundingClientRect().height),
@@ -200,6 +208,6 @@ test("reduced motion uses a static service list and always-readable process text
     .toBeGreaterThan(30);
   await expect(page.locator(".focus-row .hover-text > span").nth(1)).toHaveCSS(
     "display",
-    "none",
+    "block",
   );
 });

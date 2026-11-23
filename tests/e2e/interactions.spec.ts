@@ -147,18 +147,18 @@ test("scroll reveals run and navigation changes after the hero", async ({
   );
 });
 
-test("reduced motion keeps content visible without continuous animation", async ({
+test("site animations stay enabled when the system requests reduced motion", async ({
   page,
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
   await expect(page.locator(".hero-bottom")).toHaveCSS(
     "animation-name",
-    "none",
+    "hero-content-in",
   );
   await expect(page.locator(".marquee-track")).toHaveCSS(
     "animation-name",
-    "none",
+    "marquee-scroll",
   );
   await expect(page.getByRole("heading", { level: 1 })).toHaveCSS(
     "opacity",
