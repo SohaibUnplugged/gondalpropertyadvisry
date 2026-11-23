@@ -30,6 +30,13 @@ test("SEO helper rejects invalid metadata and off-site canonical URLs", () => {
 
 test("page meets automated WCAG accessibility checks", async ({ page }) => {
   await page.goto("/");
+  await page
+    .locator(".hero-bottom")
+    .evaluate((element) =>
+      Promise.all(
+        element.getAnimations().map((animation) => animation.finished),
+      ),
+    );
   const results = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
     .analyze();
@@ -136,10 +143,11 @@ test("all contact links use the supplied contact details", async ({ page }) => {
       "href",
       /^https:\/\/wa.me\/923086268500(?:\?|$)/,
     );
-  await expect(page.locator('a[href^="mailto:"]')).toHaveAttribute(
-    "href",
-    "mailto:usman_gondal777@yahoo.com",
-  );
+  for (const link of await page.locator('a[href^="mailto:"]').all())
+    await expect(link).toHaveAttribute(
+      "href",
+      "mailto:usman_gondal777@yahoo.com",
+    );
   for (const link of await page.locator('main a[href^="#"]').all()) {
     const id = (await link.getAttribute("href"))!.slice(1);
     await expect(page.locator(`[id="${id}"]`)).toHaveCount(1);
@@ -229,6 +237,13 @@ test("layout stays usable across small phones, tablets, and wide screens", async
   for (const width of [320, 375, 768, 1024, 1920]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/");
+    await page
+      .locator(".hero-bottom")
+      .evaluate((element) =>
+        Promise.all(
+          element.getAnimations().map((animation) => animation.finished),
+        ),
+      );
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= window.innerWidth,
@@ -236,11 +251,16 @@ test("layout stays usable across small phones, tablets, and wide screens", async
       `overflow at ${width}px`,
     ).toBe(true);
     const actions = await page.locator(".hero-actions").boundingBox();
-    const caption = await page.locator(".hero-caption").boundingBox();
+    const hero = await page.locator(".hero").boundingBox();
+    const heading = await page.getByRole("heading", { level: 1 }).boundingBox();
     expect(
       actions!.y + actions!.height,
-      `hero actions overlap caption at ${width}px`,
-    ).toBeLessThanOrEqual(caption!.y);
+      `hero actions extend beyond the hero at ${width}px`,
+    ).toBeLessThanOrEqual(hero!.y + hero!.height);
+    expect(
+      heading!.y + heading!.height,
+      `hero heading overlaps actions at ${width}px`,
+    ).toBeLessThan(actions!.y);
     await expect(
       page.getByRole("button", { name: "Continue on WhatsApp" }),
     ).toBeEnabled();

@@ -11,6 +11,11 @@ const paths = {
   mail: "M3 5h18v14H3ZM3 5l9 7 9-7",
   plus: "M12 5v14M5 12h14",
   check: "m5 12 4 4L19 6",
+  arrow: "M4 12h15m-6-6 6 6-6 6",
+  diagonal: "M5 19 19 5M5 5h14v14",
+  globe:
+    "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM3 12h18M12 3a20 20 0 0 0 0 18 20 20 0 0 0 0-18Z",
+  spark: "M12 2v20M2 12h20M5 5l14 14M5 19 14 5",
 };
 
 export function Icon({

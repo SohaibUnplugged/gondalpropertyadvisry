@@ -1,6 +1,6 @@
 ﻿# Gondal Property Advisory
 
-A responsive real estate advisory website for Usman Ali, inspired by the visual direction of Factorive. Built with Next.js App Router, React, strict TypeScript, and Tailwind CSS. There are no property listings, database, accounts, or invented business statistics.
+A responsive real estate advisory website for Usman Ali, rebuilt around the supplied Factorive reference: its photographic hero, Geist typography, warm neutral palette, editorial service rows, process grid, stacked image sections, slider, contact cards, and oversized black footer. Built with Next.js App Router, React, strict TypeScript, and Tailwind CSS. There are no property listings, database, accounts, fabricated testimonials, or invented business statistics.
 
 ## Setup
 
@@ -39,10 +39,12 @@ The check command runs ESLint, route type generation, TypeScript, a production b
 ## Code organization
 
 - src/app/: the main page, shared layout, custom 404, sitemap, robots, icon, and styles.
-- src/components/: reusable brand/icons, responsive navigation, and WhatsApp enquiry form.
+- src/components/: reusable buttons, brand/icons, responsive navigation, footer, motion controller, marquee, perspective slider, insight dialogs, and WhatsApp enquiry form.
 - src/lib/site.ts: business identity, contact details, navigation, services, process, and FAQ copy.
 - src/lib/seo.ts: validated metadata, canonical origin, social cards, and safe JSON-LD serialization.
-- public/images/: locally served architectural photographs.
+- public/images/reference/: locally served AVIF reference photographs.
+- src/app/fonts/: self-hosted variable Geist font and its OFL license.
+- docs/asset-sources.json: photo provenance and font source.
 - tests/e2e/: functional, responsive, accessibility, and SEO checks.
 - SEO-RULES.md: mandatory rules for future pages; referenced by AGENTS.md.
 
@@ -54,12 +56,20 @@ Phone links call +92 308 6268500. Email links open the visitor's email applicati
 
 ## Performance and security
 
-Public pages and crawl files are prerendered. Only navigation and the form require client components. Hero and interior photography use next/image with responsive sizing, hero preload, and lazy loading below the fold. System fonts avoid external font downloads. Dependencies are reproducibly locked. Response headers disable framing and MIME sniffing and restrict unused browser capabilities. No credentials, database queries, password handling, or protected admin routes are introduced.
+Public pages and crawl files are prerendered. The page composition stays on the server; navigation, the form, slider, dialogs, marquee controls, and scroll-reveal controller use small client components. Photography uses next/image with responsive sizing, hero preload, and lazy loading below the fold. The variable Geist font is self-hosted through next/font/local, without runtime Google Font requests. Dependencies are reproducibly locked. Response headers disable framing and MIME sniffing and restrict unused browser capabilities. No credentials, database queries, password handling, or protected admin routes are introduced.
+
+## Motion and interactions
+
+The hero has a short entrance and image-settle animation. A single IntersectionObserver triggers one-time Web Animations reveals as sections enter the viewport. Content is visible in the server HTML and remains readable without JavaScript. Reveal animations are cancelled on unmount and when reduced motion is requested.
+
+The scrolling topic strip has a pause/play control and also pauses on hover. The perspective slider supports previous/next buttons, direct slide selection, arrow keys, and touch swipes. It does not auto-advance. Insight cards open labelled native dialogs with focus management and Escape dismissal. Image hover effects, rolling button labels, process-card expansion, FAQ transitions, and the post-hero navigation complete the interaction system. All motion respects prefers-reduced-motion; process descriptions remain visible on touch layouts and with reduced motion.
+
+Browser tests cover these interactions, their keyboard and touch behavior, the no-JavaScript fallback, reference typography/layout checks, and reduced-motion preferences alongside the existing SEO, contact, and accessibility checks.
 
 ## Imagery and personalization
 
-Architectural photographs illustrate the visual direction and are not represented as Usman's listings. No portrait of Usman has been fabricated. The brand mark is a local SVG. Replace illustrative photos with approved business photography when available.
+Photographs currently reproduce the imagery treatment of the user-supplied Factorive reference. They are illustrative, not photographs of Usman, his clients, or his listings. The brand mark is a local SVG. Replace illustrative photos with approved business photography during personalization. Source URLs are recorded in docs/asset-sources.json; confirm the photographic assets' reuse rights before a public launch.
 
-Photo sources: [exterior](https://images.unsplash.com/photo-1600596542815-ffad4c1539a9) via images.unsplash.com/photo-1600596542815-ffad4c1539a9 and [interior](https://images.unsplash.com/photo-1600607687920-4e2a09cf159d). Images are subject to the [Unsplash license](https://unsplash.com/license).
+Reference: [Factorive](https://factorive.webflow.io/). Font: [Geist in Google Fonts](https://github.com/google/fonts/tree/main/ofl/geist), distributed under the included SIL Open Font License.
 
 The final domain, service areas, official brand assets, and any additional business-specific details are pending personalization. No deployment has been performed.

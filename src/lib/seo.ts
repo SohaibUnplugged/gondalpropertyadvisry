@@ -63,8 +63,8 @@ export function pageMetadata({
       locale: "en_PK",
       images: [
         {
-          url: "/images/architecture.jpg",
-          alt: "Contemporary home with landscaped outdoor living space",
+          url: "/images/reference/hero-1.avif",
+          alt: "Illustrative professional advisory photograph",
         },
       ],
     },
@@ -72,7 +72,7 @@ export function pageMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["/images/architecture.jpg"],
+      images: ["/images/reference/hero-1.avif"],
     },
   };
 }

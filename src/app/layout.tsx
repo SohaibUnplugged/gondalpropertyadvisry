@@ -1,50 +1,31 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Header } from "@/components/header";
-import { BrandMark, Icon } from "@/components/icon";
-import { navigation, site } from "@/lib/site";
-import Link from "next/link";
+import { Footer } from "@/components/footer";
+import { Icon } from "@/components/icon";
+import { site } from "@/lib/site";
 import "./globals.css";
 
+const geist = localFont({
+  src: "./fonts/geist-latin.ttf",
+  variable: "--font-geist",
+  display: "swap",
+  weight: "100 900",
+});
 export const metadata: Metadata = {
   applicationName: site.name,
   icons: { icon: "/icon.svg", apple: "/icon.svg" },
 };
-
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className={geist.variable}>
       <body>
         <a href="#main" className="skip-link">
           Skip to content
         </a>
         <Header />
         {children}
-        <footer className="footer">
-          <div className="footer-top">
-            <Link href="/" className="brand">
-              <BrandMark />
-              <span>
-                GONDAL<small>PROPERTY ADVISORY</small>
-              </span>
-            </Link>
-            <p>
-              A considered approach.
-              <br />A confident next move.
-            </p>
-            <nav aria-label="Footer navigation">
-              {navigation.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-          <div className="footer-bottom">
-            <span>© {site.name}.</span>
-            <span>Property decisions deserve a personal conversation.</span>
-            <Link href="/#main">Back to top</Link>
-          </div>
-        </footer>
+        <Footer />
         <a
           className="floating-whatsapp"
           href={site.whatsapp}

@@ -1,0 +1,93 @@
+{
+  "sources": [
+    {
+      "file": "public/images/reference/hero-1.avif",
+      "url": "https://cdn.prod.website-files.com/6a846e8e0164b847ba4bea83/6a86ce0e5a418f6ca627ee1a_867166589825f89ce54e6308cd7d4aa4_About%20banner%20(1).avif"
+    },
+    {
+      "file": "public/images/reference/about-1.avif",
+      "url": "https://cdn.prod.website-files.com/6a846e8e0164b847ba4bea83/6a855e6b2dbd22169a9291ef_e6231fbfdd7012e9e7fed944b71b3faa_about%20card%20%281%29.avif"
+    },
+    {
+      "file": "public/images/reference/service-1.avif",
+      "url": "https://cdn.prod.website-files.com/6a8576aab41c60f05044af7e/6a8580160f7b071c1891e07e_Service%20four-p-1080.avif"
+    },
+    {
+      "file": "public/images/reference/service-2.avif",
+      "url": "https://cdn.prod.website-files.com/6a8576aab41c60f05044af7e/6a857f3d7dd9be0accb661e6_Service%20three-p-1080.avif"
+    },
+    {
+      "file": "public/images/reference/service-3.avif",
+      "url": "https://cdn.prod.website-files.com/6a8576aab41c60f05044af7e/6a857d22840c2c6455ade1e5_Service%20two.avif"
+    },
+    {
+      "file": "public/images/reference/service-4.avif",
+      "url": "https://cdn.prod.website-files.com/6a8576aab41c60f05044af7e/6a89ea07d2c1d2f8d75e2924_Service%20one-p-1080.avif"
+    },
+    {
+      "file": "public/images/reference/project-1.avif",
+      "url": "https://cdn.prod.website-files.com/6a8576aab41c60f05044af7e/6a858967a6f779e41202944a_Project%20six-p-1080.avif"
+    },
+    {
+      "file": "public/images/reference/project-2.avif",
+      "url": "https://cdn.prod.website-files.com/6a8576aab41c60f05044af7e/6a8588d14858746c251a24c1_Project%20five-p-1080.avif"
+    },
+    {
+      "file": "public/images/reference/project-3.avif",
+      "url": "https://cdn.prod.website-files.com/6a8576aab41c60f05044af7e/6a8587e70f7b071c1897483a_Project%20four-p-1080.avif"
+    },
+    {
+      "file": "public/images/reference/project-4.avif",
+      "url": "https://cdn.prod.website-files.com/6a8576aab41c60f05044af7e/6a8587394fc5bcdcf4b17495_Project%20three-p-1080.avif"
+    },
+    {
+      "file": "public/images/reference/guide-1.avif",
+      "url": "https://cdn.prod.website-files.com/6a8576aab41c60f05044af7e/6a85905edcf7cb4b898d9dec_Blog%20one-p-1080.avif"
+    },
+    {
+      "file": "public/images/reference/guide-2.avif",
+      "url": "https://cdn.prod.website-files.com/6a8576aab41c60f05044af7e/6a858fe8b27ed6e175246f70_Blog%20two-p-1080.avif"
+    },
+    {
+      "file": "public/images/reference/guide-3.avif",
+      "url": "https://cdn.prod.website-files.com/6a8576aab41c60f05044af7e/6a858f6f6cd95d8077e5b9e7_Blog%20three-p-1080.avif"
+    },
+    {
+      "file": "public/images/reference/cta-1.avif",
+      "url": "https://cdn.prod.website-files.com/6a846e8e0164b847ba4bea83/6a868c2e6d029cff2b21a073_81beafe79c5de4cacae8d5b1bd491282_Cta%20%281%29-p-1600.avif"
+    },
+    {
+      "file": "public/images/reference/wood-1.avif",
+      "url": "https://cdn.prod.website-files.com/6a846e8e0164b847ba4bea83/6a85ff67fc769120ece5aa7b_pricing%20(1).avif"
+    },
+    {
+      "file": "public/images/reference/perspective-1.avif",
+      "url": "https://cdn.prod.website-files.com/6a846e8e0164b847ba4bea83/6a85e3708c6f3d8030b4734a_Review%20four.avif"
+    },
+    {
+      "file": "public/images/reference/perspective-2.avif",
+      "url": "https://cdn.prod.website-files.com/6a846e8e0164b847ba4bea83/6a85e37093078980a24b2b48_Review%20three.avif"
+    },
+    {
+      "file": "public/images/reference/perspective-3.avif",
+      "url": "https://cdn.prod.website-files.com/6a846e8e0164b847ba4bea83/6a85e37129f740a31e9c38d3_Review%20two.avif"
+    },
+    {
+      "file": "public/images/reference/process-1.svg",
+      "url": "https://cdn.prod.website-files.com/6a846e8e0164b847ba4bea83/6a887ec6d21c591c96053835_Process%20one.svg"
+    },
+    {
+      "file": "public/images/reference/process-2.svg",
+      "url": "https://cdn.prod.website-files.com/6a846e8e0164b847ba4bea83/6a887ec615d84815898c79ca_Process%20four.svg"
+    },
+    {
+      "file": "public/images/reference/process-3.svg",
+      "url": "https://cdn.prod.website-files.com/6a846e8e0164b847ba4bea83/6a887ec63e93446042236c13_Process%20five.svg"
+    },
+    {
+      "file": "public/images/reference/process-4.svg",
+      "url": "https://cdn.prod.website-files.com/6a846e8e0164b847ba4bea83/6a887ec6758782aae33eff74_Process%20two.svg"
+    }
+  ],
+  "fontUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/geist/Geist%5Bwght%5D.ttf"
+}

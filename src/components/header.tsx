@@ -2,12 +2,23 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { BrandMark, Icon } from "./icon";
+import { BrandMark } from "./icon";
 import { navigation, site } from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    const hero = document.querySelector(".hero");
+    if (!hero) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setScrolled(!entry.isIntersecting),
+      { rootMargin: "-82px 0px 0px 0px" },
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
   useEffect(() => {
     const close = (event: KeyboardEvent) => {
       if (event.key === "Escape" && open) {
@@ -20,11 +31,13 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="site-header">
+    <header
+      className={`site-header ${scrolled ? "is-scrolled" : ""} ${open ? "menu-is-open" : ""}`}
+    >
       <Link href="/" className="brand" aria-label={`${site.name} home`}>
         <BrandMark />
         <span>
-          GONDAL<small>PROPERTY ADVISORY</small>
+          Gondal<small>Property Advisory</small>
         </span>
       </Link>
       <nav className="desktop-nav" aria-label="Main navigation">
@@ -35,8 +48,7 @@ export function Header() {
         ))}
       </nav>
       <a className="button header-cta" href={site.telephone}>
-        <Icon name="phone" />
-        Let’s talk
+        Get Started
       </a>
       <button
         ref={toggle}
